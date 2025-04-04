@@ -8,7 +8,8 @@ import React from 'react';
 // import Template_7 from './components/Template_7';
 // import Template_8 from './components/Template_8';
 // import Template_9 from './components/Template_9';
-import Template_10 from './components/Template_10';
+import InteractiveKnowledgeGraph from './components/InteractiveKnowledgeGraph';
+// import GraphManagerApp from './components/GraphManagerApp';
 
 
 
@@ -33,7 +34,10 @@ function App() {
 
       {/* <Template_9 /> */}
 
-      <Template_10 />
+      <InteractiveKnowledgeGraph />
+      {/* <GraphManagerApp /> */}
+
+
 
     </div>
 
