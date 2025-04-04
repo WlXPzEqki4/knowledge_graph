@@ -5340,17 +5340,17 @@
 //          {/* Loading / Empty State Messages */}
 //          {/* **FIX**: Use renderedNodeCount state here */}
 //          {!isBuildingNetwork && graphData.nodes.length > 0 && renderedNodeCount === 0 && (
-//              <div className="absolute inset-0 flex items-center justify-center text-gray-500 pointer-events-none">
+//              <div className="absolute inset-0 flex items-center justify-center text-gray-600 pointer-events-none bg-white bg-opacity-70 backdrop-blur-sm">
 //                 No nodes match the current filters.
 //              </div>
 //          )}
 //          {isBuildingNetwork && visibleNodeIds.size === 0 && (
-//               <div className="absolute inset-0 flex items-center justify-center text-gray-500 pointer-events-none">
+//               <div className="absolute inset-0 flex items-center justify-center text-gray-600 pointer-events-none bg-white bg-opacity-70 backdrop-blur-sm">
 //                  Click a node in Overview Mode to start building the network.
 //               </div>
 //           )}
 //           {graphData.nodes.length === 0 && graphData.links.length === 0 && !isBuildingNetwork && (
-//                <div className="absolute inset-0 flex items-center justify-center text-gray-500 pointer-events-none">
+//                <div className="absolute inset-0 flex items-center justify-center text-gray-600 pointer-events-none bg-white bg-opacity-70 backdrop-blur-sm">
 //                    Loading graph data...
 //                </div>
 //           )}
@@ -6425,19 +6425,19 @@
 //          {/* Loading / Empty State Messages */}
 //          {/* Message when filters result in no nodes (Overview Mode) */}
 //          {!isBuildingNetwork && graphData.nodes.length > 0 && renderedNodeCount === 0 && (
-//              <div className="absolute inset-0 flex items-center justify-center text-gray-500 pointer-events-none">
+//              <div className="absolute inset-0 flex items-center justify-center text-gray-600 pointer-events-none bg-white bg-opacity-70 backdrop-blur-sm">
 //                 No nodes match the current filters or search term.
 //              </div>
 //          )}
 //          {/* Message when Build Mode is active but no nodes are visible yet (shouldn't happen often with current logic) */}
 //          {isBuildingNetwork && visibleNodeIds.size === 0 && historyIndex < 0 && (
-//               <div className="absolute inset-0 flex items-center justify-center text-gray-500 pointer-events-none">
+//               <div className="absolute inset-0 flex items-center justify-center text-gray-600 pointer-events-none bg-white bg-opacity-70 backdrop-blur-sm">
 //                  Click a node in Overview Mode to start building the network.
 //               </div>
 //           )}
 //           {/* Message while initial data is loading */}
 //           {graphData.nodes.length === 0 && graphData.links.length === 0 && !isBuildingNetwork && (
-//                <div className="absolute inset-0 flex items-center justify-center text-gray-500 pointer-events-none">
+//                <div className="absolute inset-0 flex items-center justify-center text-gray-600 pointer-events-none bg-white bg-opacity-70 backdrop-blur-sm">
 //                    Loading graph data...
 //                </div>
 //           )}
@@ -8708,19 +8708,19 @@
 //          {/* Loading / Empty State Messages */}
 //          {/* Message when filters result in no nodes (Overview Mode) */}
 //          {!isBuildingNetwork && graphData.nodes.length > 0 && renderedNodeCount === 0 && (
-//              <div className="absolute inset-0 flex items-center justify-center text-gray-500 pointer-events-none">
+//              <div className="absolute inset-0 flex items-center justify-center text-gray-600 pointer-events-none bg-white bg-opacity-70 backdrop-blur-sm">
 //                 No nodes match the current filters or search term.
 //              </div>
 //          )}
 //          {/* Message when Build Mode is active but no nodes are visible yet (shouldn't happen often with current logic) */}
 //          {isBuildingNetwork && visibleNodeIds.size === 0 && historyIndex < 0 && (
-//               <div className="absolute inset-0 flex items-center justify-center text-gray-500 pointer-events-none">
+//               <div className="absolute inset-0 flex items-center justify-center text-gray-600 pointer-events-none bg-white bg-opacity-70 backdrop-blur-sm">
 //                  Click a node in Overview Mode to start building the network.
 //               </div>
 //           )}
 //           {/* Message while initial data is loading */}
 //           {graphData.nodes.length === 0 && graphData.links.length === 0 && !isBuildingNetwork && (
-//                <div className="absolute inset-0 flex items-center justify-center text-gray-500 pointer-events-none">
+//                <div className="absolute inset-0 flex items-center justify-center text-gray-600 pointer-events-none bg-white bg-opacity-70 backdrop-blur-sm">
 //                    Loading graph data...
 //                </div>
 //           )}
@@ -9736,10 +9736,11 @@ const InteractiveKnowledgeGraph = () => {
 
   // --- JSX ---
   return (
-    <div className="flex flex-col h-screen bg-gray-50">
+    <div className="flex flex-col h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Control Panel */}
-      <div className="bg-gray-100 p-3 shadow-md z-10 print:hidden">
-        <h1 className="text-xl font-semibold mb-3 text-gray-800">Interactive Knowledge Graph: UAE Investments/Operations</h1>
+      <div className="bg-white p-4 shadow-lg z-10 print:hidden border-b border-gray-200">
+
+        <h1 className="text-2xl font-bold mb-4 text-gray-800 flex items-center"><span className="mr-2 text-blue-600">🌍</span>Africa Investment Map</h1>
 
         {/* Mode Indicator & History Controls */}
          {isBuildingNetwork && (
@@ -9808,26 +9809,26 @@ const InteractiveKnowledgeGraph = () => {
         </div>
 
          {/* Action Buttons Area */}
-         <div className="mt-3 flex flex-wrap items-end gap-x-4 gap-y-2">
+         <div className="mt-4 flex flex-wrap items-end gap-x-4 gap-y-2">
              <button
-                 className="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded text-sm font-medium shadow-sm"
+                 className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md text-sm font-medium shadow-sm transition-all duration-200 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
                  onClick={handleReset}
                  title="Reset filters, search, zoom, and exit build mode">
-                 Reset All
+                 <span className="flex items-center"><svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>Reset All</span>
              </button>
              <button
-                 className="bg-gray-200 hover:bg-gray-300 px-3 py-1.5 rounded text-sm shadow-sm"
+                 className="bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 px-4 py-2 rounded-md text-sm shadow-sm transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                  onClick={() => setShowLegend(!showLegend)}>
-                 {showLegend ? 'Hide Legend' : 'Show Legend'}
+                 <span className="flex items-center">{showLegend ? <><svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" /></svg>Hide Legend</> : <><svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>Show Legend</>}</span>
              </button>
          </div>
 
         {/* Legend - Left Side Vertical Layout */}
         {showLegend && (
-            <div className="absolute left-3 top-32 bg-white p-2 rounded border border-gray-200 text-xs shadow-sm z-10 max-w-[220px] max-h-[70vh] overflow-y-auto">
+            <div className="absolute left-3 top-[240px] bg-white p-3 rounded-lg border border-gray-200 text-xs shadow-lg z-10 max-w-[220px] max-h-[70vh] overflow-y-auto backdrop-blur-sm bg-opacity-95">
                 {/* Node Types - One per row */}
                 <div className="mb-2">
-                    <div className="font-medium text-gray-600 mb-1 border-b pb-1">Nodes:</div>
+                    <div className="font-semibold text-gray-700 mb-2 border-b border-gray-200 pb-1 text-sm">Nodes:</div>
                     <div className="flex flex-col gap-y-1">
                         {nodeTypeOptions.filter(o => o.value !== 'all').map(o => (
                             <div key={o.value} className="flex items-center">
@@ -9840,7 +9841,7 @@ const InteractiveKnowledgeGraph = () => {
                 
                 {/* Relationship Types - One per row */}
                 <div>
-                    <div className="font-medium text-gray-600 mb-1 border-b pb-1 mt-2">Relationships:</div>
+                    <div className="font-semibold text-gray-700 mb-2 border-b border-gray-200 pb-1 mt-3 text-sm">Relationships:</div>
                     <div className="flex flex-col gap-y-1">
                         {edgeTypeOptions
                             .filter(o => o.value !== 'all')
@@ -9861,7 +9862,7 @@ const InteractiveKnowledgeGraph = () => {
                 </div>
                 
                 {/* Instructions */}
-                <div className="text-gray-500 text-[10px] mt-3 pt-1 border-t">
+                <div className="text-gray-500 text-[10px] mt-3 pt-2 border-t border-gray-200 italic">
                     {isBuildingNetwork 
                         ? "Build Mode: Click nodes to expand. Drag to reposition." 
                         : "Overview Mode: Click a node to start Build Mode."}
@@ -9871,7 +9872,7 @@ const InteractiveKnowledgeGraph = () => {
       </div>
 
       {/* Graph Container */}
-      <div className="flex-grow border-t border-gray-200 overflow-hidden relative" style={{ position: 'relative' }}>
+      <div className="flex-grow overflow-hidden relative bg-gradient-to-br from-gray-50 to-gray-100" style={{ position: 'relative' }}>
         <svg ref={svgRef} id="graph-container" className="w-full h-full">
            {/* g element will be appended here by D3 */}
         </svg>
@@ -9879,19 +9880,19 @@ const InteractiveKnowledgeGraph = () => {
          {/* Loading / Empty State Messages */}
          {/* Message when filters result in no nodes (Overview Mode) */}
          {!isBuildingNetwork && graphData.nodes.length > 0 && renderedNodeCount === 0 && (
-             <div className="absolute inset-0 flex items-center justify-center text-gray-500 pointer-events-none">
+             <div className="absolute inset-0 flex items-center justify-center text-gray-600 pointer-events-none bg-white bg-opacity-70 backdrop-blur-sm">
                 No nodes match the current filters or search term.
              </div>
          )}
          {/* Message when Build Mode is active but no nodes are visible yet (shouldn't happen often with current logic) */}
          {isBuildingNetwork && visibleNodeIds.size === 0 && historyIndex < 0 && (
-              <div className="absolute inset-0 flex items-center justify-center text-gray-500 pointer-events-none">
+              <div className="absolute inset-0 flex items-center justify-center text-gray-600 pointer-events-none bg-white bg-opacity-70 backdrop-blur-sm">
                  Click a node in Overview Mode to start building the network.
               </div>
           )}
           {/* Message while initial data is loading */}
           {graphData.nodes.length === 0 && graphData.links.length === 0 && !isBuildingNetwork && (
-               <div className="absolute inset-0 flex items-center justify-center text-gray-500 pointer-events-none">
+               <div className="absolute inset-0 flex items-center justify-center text-gray-600 pointer-events-none bg-white bg-opacity-70 backdrop-blur-sm">
                    Loading graph data...
                </div>
           )}
